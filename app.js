@@ -2,6 +2,7 @@ const express = require('express');
 const dbconnect = require('./config');
 const cors = require('cors');
 const ImpactosEcologicosController = require('./controllers/ImpactosEcologicoController');
+const UserController = require('./controllers/UserController');
 const app = express();
 
 // Configuración de CORS para permitir todas las solicitudes
@@ -12,6 +13,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.use(UserController);
 app.use(ImpactosEcologicosController);
 
 app.listen(3001, () => {
